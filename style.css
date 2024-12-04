@@ -1,0 +1,104 @@
+:root{
+  --main-blue: rgb(0, 71, 133);
+  --bg-color: rgba( 255, 255, 255, 0.5);
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  background-image: linear-gradient(62deg, #9ecaf7, #71acb3);
+}
+.page-header {
+  background: var(--bg-color);
+  box-shadow: 0 0 0 3px rgba(10, 70, 130, 0.100);
+  backdrop-filter: blur( 17.5px );
+  -webkit-backdrop-filter: blur( 17.5px );
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
+  padding: 1.3rem;
+  display: flex;
+  justify-content: space-between;
+}
+.hightitle{
+  color: var(--main-blue);
+  cursor: pointer;
+  font-size: 1.5rem;
+  font-family: 'Playfair Display', serif;
+}
+.nav-bar {
+  margin: auto;
+}
+.nav-bar a {
+  color: var(--main-blue);
+  padding: 1.5rem;
+  cursor: grab;
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-family: 'Playfair Display', serif;
+  transition: 0.3s;
+  transform: scale(0.90);
+  position: relative;
+}
+.nav-bar a:hover{
+  color: rgb(0, 0, 0);
+  transform: scale(1);
+}
+.nav-bar a::before{
+  content: "";
+  position: absolute;
+  bottom: 10px;
+  background: linear-gradient(45deg, rgb(3, 72, 133), rgb(8, 126, 230), rgb(83, 165, 236));
+  height: 2.5px;
+  left: 0;
+  width: 0%;
+  -webkit-transition: all .5s cubic-bezier(.23,1,.32,1);
+  transition: all .5s cubic-bezier(.23,1,.32,1);
+}
+.nav-bar a:hover::before{
+  width: 95%;
+}
+.menu-icon {
+  color: var(--main-blue);
+  cursor: pointer;
+  display: none;
+  transition: all 0.3s ease;
+  font-size: 1.5rem;
+}
+
+@media screen and (max-width: 768px) {
+  .nav-bar {
+    display: none;
+    position: absolute;
+    top: 6rem;
+    left: 0;
+    width: 100%;
+    background: var(--bg-color);
+    box-shadow: 0 0 0 3px rgba(10, 70, 130, 0.100);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    text-align: center;
+  }
+  .nav-bar a::before{
+    left: 40%;
+  }
+  .nav-bar a:hover::before{
+    width: 20%;
+    height: 3px;
+  }
+  .nav-bar .responsive {
+    display: block;
+  }
+  .nav-bar a {
+    display: block;
+  }
+  .menu-icon {
+    display: block;
+    z-index: 1;
+  }
+  
+  .logo {
+    font-size: 1.4rem;
+  }
+}
