@@ -28,19 +28,22 @@
 
 </head>
 
-<body class="light">
+<body class="darkmode">
+
   <div class="page-header">
     <div class="icons-hightitle">
       <a id="menu-icon" class="menu-icon" onclick="onMenuClick()">
         <i class="fa fa-bars"></i></a>
-      <h1 class="hightitle">Maison ******.</h1>
+      <h1 class="hightitle">Maison T*****.</h1>
 
-      <input type="checkbox" id="toggle">
-      <label class="toggle" for="toggle">
+
+      <button id="theme-switch">
         <i class="bx bxs-sun"></i>
         <i class="bx bx-moon"></i>
-        <span class="ball"></span>
-      </label>
+      </button>
+
+
+
 
     </div>
     <div id="navigation-bar" class="nav-bar">
@@ -59,18 +62,28 @@
       var responsive_class_name = "responsive";
       navbar.classList.toggle("menu-icon");
     }
-    const body = document.querySelector("body");
-    const toggle = document.querySelector("#toggle");
-    const sunIcon = document.querySelector(".toggle .bxs-sun");
-    const moonIcon = document.querySelector(".toggle .bx-moon");
 
-    toggle.addEventListener("change", () => {
 
-      body.classList.toggle("dark");
-      sunIcon.className = sunIcon.className == "bx bxs-sun" ? "bx bx-sun" : "bx bxs-sun";
-      moonIcon.className = moonIcon.className == "bx bxs-moon" ? "bx bx-moon" : "bx bxs-moon";
+    let darkmode = localStorage.getItem('darkmode')
+const themeSwitch = document.getElementById('theme-switch')
 
-    });
+const enableDarkmode = () => {
+  document.body.classList.add('darkmode')
+  localStorage.setItem('darkmode', 'active')
+}
+
+const disableDarkmode = () => {
+  document.body.classList.remove('darkmode')
+  localStorage.setItem('darkmode', null)
+}
+
+if(darkmode === "active") enableDarkmode()
+
+themeSwitch.addEventListener("click", () => {
+  darkmode = localStorage.getItem('darkmode')
+  darkmode !== "active" ? enableDarkmode() : disableDarkmode()
+})
+
   </script>
 </body>
 
